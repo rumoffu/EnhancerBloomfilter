@@ -4,7 +4,10 @@ EnhancerBloomfilter
 Bloomfilter Implementation for Classifying Enhancers
 
 
-Our Bloom filter implementation used a java version called BloomFilter.java which was developed by previous research.
+Our Bloom filter implementation used a java version called BloomFilter.java which was developed by previous research. 
+(Melsted P, Pritchard JK (2011) Efficient counting of k-mers 
+in DNA sequences using a bloom filter.
+Bioinformatics 12:333)
 Our code itself is called bloom_driver.java which uses BloomFilter.java to do all Bloom filter functions.  
 
 Our program is currently set to take in two text files in FASTA format which would be a file of known enhancer (positive) sequences and a file of known non-enhancer (negative) sequences.  Then, it uses 3/4 of the data to train a positive and negative Bloom filter.  Then it uses the remaining 1/4 of the data for testing to see the accuracy of classification.
