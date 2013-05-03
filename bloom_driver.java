@@ -5,7 +5,7 @@ public class bloom_driver{
 
     public static class read
     {
-      //constructor
+    	//constructor
  	   read( String namey, String seqy, int len )
  	   {
  		   name  	= namey;
@@ -71,7 +71,7 @@ public class bloom_driver{
 					Scanner infile2 = new Scanner( new FileReader( "nullseqsi_200_1.fa" ) );
 					String title;
 					String seq;
-					int in_size = 5000;
+					int in_size = 50000; //arbitrary size, assuming less than 50,000 reads in a file 
 					read[] pos_reads = new read[in_size];
 					read[] neg_reads = new read[in_size];
 					int num_pos_reads = 0;
@@ -328,6 +328,6 @@ public class bloom_driver{
 		}//end normalize loop
 		toFile.close(); // close summary.txt
 		//toList.close(); // close list.txt
-	}
+	} // end main
 
-}
+} // end bloom_driver.java
