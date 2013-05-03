@@ -279,19 +279,21 @@ public class bloom_driver{
           for(int i = 0; i < ptest.length; i++)
           {
             ppos_neg_diff += pos_reads[ptest[i]].num_pos_kmers - pos_reads[ptest[i]].num_neg_kmers;
-            ///toFile1.println(i + "\t" + pos_reads[ptest[i]].num_pos_kmers + "\t" + pos_reads[ptest[i]].num_neg_kmers + "\t" + pos_reads[ptest[i]].num_kmers);
+            ///toFile1.println(i + "\t" + pos_reads[ptest[i]].num_pos_kmers + "\t" + 
+            ///       pos_reads[ptest[i]].num_neg_kmers + "\t" + pos_reads[ptest[i]].num_kmers);
           }
           ///toFile1.println("NEGATIVE");
           for(int i = 0; i < ntest.length; i++)
           {
             npos_neg_diff += neg_reads[ntest[i]].num_pos_kmers - neg_reads[ntest[i]].num_neg_kmers;
-            ///toFile1.println(i + "\t" + neg_reads[ntest[i]].num_pos_kmers + "\t" + neg_reads[ntest[i]].num_neg_kmers + "\t" + neg_reads[ntest[i]].num_kmers);
+            ///toFile1.println(i + "\t" + neg_reads[ntest[i]].num_pos_kmers + "\t" + 
+            ///       neg_reads[ntest[i]].num_neg_kmers + "\t" + neg_reads[ntest[i]].num_kmers);
           }
           ///toFile1.close();
           
           double average_ppos_neg_difference = ppos_neg_diff / (ptest.length);
           double average_npos_neg_difference = npos_neg_diff / (ntest.length);
-          
+          double average_right = (num_pos_right + num_neg_right ) / (double) (ptest.length + ntest.length);
           if(consoleprint)
           {
             System.out.println("kmer_size: " + kmer_size);
@@ -306,7 +308,7 @@ public class bloom_driver{
             //System.out.println("average_ppos_neg_difference: " + average_ppos_neg_difference);
             double average_kmers = (total_pos_length + total_neg_length) / (num_pos_reads + num_neg_reads);
             System.out.println("average_kmers per read: " + average_kmers);
-            System.out.println("average % right:"+"\t" + (num_pos_right + num_neg_right ) / (double) (ptest.length + ntest.length));
+            System.out.println("average % right:"+"\t" + average_right);
           }
           String data = "";
           data = data + kmer_size + "\t";
@@ -314,7 +316,7 @@ public class bloom_driver{
           data = data + normalize + "\t";
           data = data + num_pos_right / (double) ptest.length + "\t";
           data = data + num_neg_right / (double) ntest.length + "\t";
-          data = data + (num_pos_right + num_neg_right ) / (double) (ptest.length + ntest.length)+ "\t"; //average right
+          data = data + average_right + "\t"; //average right
           data = data + pphit / num_pkmers+ "\t";
           data = data + nphit / num_nkmers+ "\t";
           // Output search time 
