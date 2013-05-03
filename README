@@ -16,6 +16,7 @@ In our bloom_driver.java code, we use a nested static class called "read" to han
 
 Usage: Our code is currently hard-coded to open a file "enh_fb.fa" of enhancer sequences in FASTA format and a file "nullseqsi_200_1.fa" of non-enhancer sequences in FASTA format.  It also normalizes the data to use the same number of positive and negative sequences, and it runs the data for all 4 test cases.  It takes in two arguments: lower_kmer_len upper_kmer_len which are the lower and upper k-mer length limits to test.  It prints out the summary of results to "summary.txt" in a tab separated format.
 
+
 The program:
 1) Reads in the data
 2) Sets up to train on 3/4 of the data and test on the remaining 1/4
